@@ -1,12 +1,11 @@
 node ('app-server'){  
     def app
     stage('Cloning Git') {
-
-       checkout scm
+        checkout scm
     }  
     
     stage('Build-and-Tag') {
-        app = docker.build("srsamuka/myrepo")
+        app = docker.build("amirt96/snake")
     }
     stage('Post-to-dockerhub') {
         
