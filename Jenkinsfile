@@ -9,7 +9,7 @@ node ('app-server'){
     }
     stage('Post-to-dockerhub') {
         
-     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_credentials') {
+     docker.withRegistry('https://registry.hub.docker.com', 'srsamuka') {
             app.push("latest")
         			}
          }
