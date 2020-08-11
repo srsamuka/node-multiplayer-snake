@@ -5,7 +5,7 @@ node ('app-server'){
     }  
     
     stage('Build-and-Tag') {
-        app = docker.build("amirt96/snake")
+        app = docker.build("srsamuka/myrepo")
     }
     stage('Post-to-dockerhub') {
         
