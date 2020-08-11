@@ -4,11 +4,6 @@ node ('master'){
         /* Let's make sure we have the repository cloned to our workspace */
        checkout scm
     }  
-   /* stage('Build-and-tag'){
-        //sh 'echo Build-and-tag'
-        build 'SECURITY-SAST-SNYK'
-    }*/
-
     
     stage('Build-and-Tag') {
          /*sh 'echo Build-and tag2'
@@ -22,21 +17,11 @@ node ('master'){
             app.push("latest")
         			}
          }
-    /* stage('SECURITY-IMAGE-SCANNER'){
-        sh 'echo SECURITY-IMAGE-SCANNER'
-        //build 'SECURITY-IMAGE-SCANNER-AQUAMICROSCANNER'
-    }*/
-  
     
     stage('Pull-image-server') {
         //sh 'Pull-image-server'
          sh "docker-compose down"
          sh "docker-compose up -d"	
       }
-    
-     /*stage('DAST')
-        {
-        build 'SECURITY-DAST-OWASP_ZAP'
-        }*/
- 
+     
 }
