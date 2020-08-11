@@ -4,31 +4,34 @@ node ('Ubuntu-app-agent'){
         /* Let's make sure we have the repository cloned to our workspace */
        checkout scm
     }  
-    stage('SAST'){
-        build 'SECURITY-SAST-SNYK'
+    stage('Build-and-tag'){
+        sh 'echo Build-and-tag'
+        //build 'SECURITY-SAST-SNYK'
     }
 
     
-    stage('Build-and-Tag') {
+    stage('Build-and-Tag2') {
+        sh 'echo Build-and tag2'
     /* This builds the actual image; synonymous to
-         * docker build on the command line */
-        app = docker.build("amrit96/snake")
+         * docker build on the command line 
+        app = docker.build("amrit96/snake")*/
     }
     stage('Post-to-dockerhub') {
-    
-     docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
-            app.push("latest")
+        sh 'echo Post-to-dockerhub'
+     /*docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
+            app.push("latest")*/
         			}
          }
     stage('SECURITY-IMAGE-SCANNER'){
-        build 'SECURITY-IMAGE-SCANNER-AQUAMICROSCANNER'
+        sh 'echo SECURITY-IMAGE-SCANNER'
+        //build 'SECURITY-IMAGE-SCANNER-AQUAMICROSCANNER'
     }
   
     
     stage('Pull-image-server') {
-    
-         sh "docker-compose down"
-         sh "docker-compose up -d"	
+        sh 'Pull-image-server'
+       /*  sh "docker-compose down"
+         sh "docker-compose up -d"	*/
       }
     
     stage('DAST')
