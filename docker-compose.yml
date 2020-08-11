@@ -1,7 +1,7 @@
 version: '2'
 services:
   snake:
-    image: 'srsamuka/myrepo'
+    image: 'amrit96/snake'
     environment:
       - "PORT:3000"
     ports:
