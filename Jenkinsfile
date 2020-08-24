@@ -1,7 +1,7 @@
 node ('app-server'){  
     //def app
     stage('Cloning Git') {
-        sh 'echo 
+        //sh 'echo c
     checkout scm
     }  
     
