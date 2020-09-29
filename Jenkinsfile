@@ -11,7 +11,7 @@ node ('application'){
     }
     stage('Post-to-dockerhub') {
         //sh 'echo Post-to-docker'
-        docker.withRegistry('https://registry.hub.docker.com', 'github_credentials') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_credentials') {
             app.push("latest")
             }
     }
